@@ -5,7 +5,7 @@ prefer-active-python = true
 
 [tool.poetry]
 name = "Flask-Multipass-Authentik"
-version = "0.0.1"
+version = "0.0.2"
 description = "Flask-Multipass provider for Authentik"
 repository = "https://github.com/RobotHanzo/flask-multipass-authentik"
 readme = "README.md"
