@@ -81,13 +81,14 @@ class AuthentikIdentityProvider(AuthlibIdentityProvider):
     def get_group(self, name):
         return self.group_class(self, name)
 
-
-
     def search_groups(self, name, exact=False):
         with authentik_client.ApiClient(self.api_config) as api_client:
             api = authentik_client.CoreApi(api_client)
             self.logger.info('Requesting groups matching "%s"', name)
-            groups = api.core_groups_list(search=name).results
+            if exact:
+                groups = api.core_groups_list(name=name).results
+            else:
+                groups = api.core_groups_list(search=name).results
             for group in groups:
                 yield self.get_group(group.name)
 

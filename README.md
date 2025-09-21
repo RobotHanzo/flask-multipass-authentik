@@ -1,7 +1,7 @@
 # Flask-Multipass-Authentik
 
 This package provides the `authentik` authentication and identity providers for [Flask-Multipass][multipass].
-Inspired & adapted from [flask-multipass-authentik](https://github.com/unconventionaldotdev/flask-multipass-authentik)
+Inspired & adapted from [flask-multipass-keycloak](https://github.com/unconventionaldotdev/flask-multipass-keycloak)
 
 `AuthentikAuthProvider`
 This provider is a simple wrapper around [`AuthlibAuthProvider`](https://flask-multipass.readthedocs.io/en/latest/api/#flask_multipass.providers.authlib.AuthlibAuthProvider), since Authentik works well with the standard `authlib` provider in `flask-multipass`.
@@ -26,7 +26,15 @@ MULTIPASS_AUTH_PROVIDERS = {
     'authentik': {
         'type': 'authentik',
         'title': 'Authentik Auth Provider',
-        'authlib_args': {...}
+        'authlib_args': {
+            'client_id': '',  # put your client id here
+            'client_secret': '',  # put your client secret here
+            'client_kwargs': {'scope': 'email openid profile'},
+            'authorize_url': 'https://authentik.tld/application/o/authorize/', # Replace authentik.tld with your Authentik base URL
+            'access_token_url': 'https://authentik.tld/application/o/token/',
+            'userinfo_endpoint': 'https://authentik.tld/application/o/userinfo/',
+            'jwks_uri': 'https://authentik.tld/application/o/<app-id>/jwks/' # Replace <app-id> with your Authentik application ID
+        }
     }
 }
 
@@ -36,14 +44,8 @@ MULTIPASS_IDENTITY_PROVIDERS = {
         'title': 'Authentik Identity Provider',
         'identifier_field': 'email',
         'authentik_args': {
-            'client_id': '',  # put your client id here
-            'client_secret': '',  # put your client secret here
-            'client_kwargs': {'scope': 'email openid profile'},
             'api_url': 'https://authentik.tld/api/v3',
-            'authorize_url': 'https://authentik.tld/application/o/authorize/', # Replace authentik.tld with your Authentik base URL
-            'access_token_url': 'https://authentik.tld/application/o/token/',
-            'userinfo_endpoint': 'https://authentik.tld/application/o/userinfo/',
-            'jwks_uri': 'https://authentik.tld/application/o/<app-id>/jwks/' # Replace <app-id> with your Authentik application ID
+            'api_key': 'your_api_key_here'
         }
     }
 }

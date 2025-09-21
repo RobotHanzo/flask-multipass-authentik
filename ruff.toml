@@ -23,7 +23,7 @@ task-tags = ["TODO", "FIXME", "XXX", "HACK"]
 
 [isort]
 force-single-line = true
-known-first-party = ["flask_multipass_keycloak"]
+known-first-party = ["flask_multipass_authentik"]
 section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
 
 [pydocstyle]
