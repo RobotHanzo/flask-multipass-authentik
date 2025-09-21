@@ -11,11 +11,11 @@ unbehead:
 .PHONY: lint
 lint: ruff unbehead
 
-# -- testing -------------------------------------------------------------------
-
-.PHONY: pytest
-pytest:
-	pytest
-
-.PHONY: test
-test: pytest
+# # -- testing -------------------------------------------------------------------
+#
+# .PHONY: pytest
+# pytest:
+# 	pytest
+#
+# .PHONY: test
+# test: pytest
