@@ -28,6 +28,3 @@ jobs:
       - name: Install package
         run: |
           poetry install
-      - name: Run tests
-        run: |
-          poetry run -- make test

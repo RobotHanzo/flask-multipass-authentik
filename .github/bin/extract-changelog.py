@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-# This file is part of Flask-Multipass-Keycloak.
-# Copyright (C) 2023 - 2024 CERN & UNCONVENTIONAL
+# This file is part of Flask-Multipass-Authentik.
+# Copyright (C) 2025 RobotHanzo & CERN & UNCONVENTIONAL
 
 import re
 import sys
