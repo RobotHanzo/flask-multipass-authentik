@@ -1,5 +1,5 @@
 # This file is part of Flask-Multipass-Authentik.
-# Copyright (C) 2025 RobotHanzo & CERN & UNCONVENTIONAL
+# Copyright (C) 2023 - 2025 RobotHanzo & CERN & UNCONVENTIONAL
 
 import logging
 
