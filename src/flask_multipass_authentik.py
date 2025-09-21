@@ -46,6 +46,7 @@ class AuthentikGroup(Group):
             user = api.core_users_list(**search)
             if not user:
                 return False
+            user = user[0]
             for group in user.groups_obj:
                 if group.name.lower() == self.name.lower():
                     return True
