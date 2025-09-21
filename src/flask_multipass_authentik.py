@@ -43,7 +43,7 @@ class AuthentikGroup(Group):
             api = authentik_client.CoreApi(api_client)
             self.provider.logger.info('Requesting group info of user "%s"', identifier)
             search = {self.provider.settings['identifier_field']: identifier}
-            user = api.core_users_list(**search)
+            user = api.core_users_list(**search).results
             if not user:
                 return False
             user = user[0]
